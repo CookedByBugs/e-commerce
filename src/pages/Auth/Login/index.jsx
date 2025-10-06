@@ -1,6 +1,7 @@
 import { Col, Row } from "antd";
 import React, { useState } from "react";
 import img from "../../../assets/img1.svg";
+import axios from "axios";
 
 const initialState = {
   email: "",
@@ -14,6 +15,15 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("state", state);
+    await axios
+      .post(`${import.meta.env.VITE_SERVER}/api/login`, state)
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("authToken", res.data.token)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -33,8 +43,8 @@ const SignIn = () => {
             <div className="flex flex-col items-center justify-center max-w-[400px] w-full mx-auto h-full">
               <div className="mb-5 w-full">
                 <div className="">
-                  <h2 className="sm:text-4xl text-3xl my-2">
-                    Log in to ShopVerse
+                  <h2 className="sm:text-4xl font-semibold text-3xl my-2">
+                    Sign in to ShopVerse
                   </h2>
                 </div>
                 <p>Enter your details below</p>

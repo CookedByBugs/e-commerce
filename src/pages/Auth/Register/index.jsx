@@ -1,6 +1,7 @@
 import { Col, Row } from "antd";
 import React, { useState } from "react";
 import img from "../../../assets/img1.svg";
+import axios from "axios";
 
 const initialState = {
   fullName: "",
@@ -14,7 +15,12 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('state', state)
+    console.log("state", state);
+    await axios.post(`${import.meta.env.VITE_SERVER}/api/register`, state).then((res) => {
+      console.log(res.data);
+    }).catch(error=>{
+      console.error(error)
+    })
   };
 
   return (
@@ -42,29 +48,31 @@ const SignUp = () => {
               </div>
 
               <input
-              onChange={handleChange}
+                onChange={handleChange}
                 type="text"
                 name="fullName"
                 placeholder="Full Name"
                 className="input-field"
               />
               <input
-              onChange={handleChange}
+                onChange={handleChange}
                 type="email"
                 name="email"
                 placeholder="Email"
                 className="input-field"
               />
               <input
-              onChange={handleChange}
+                onChange={handleChange}
                 type="password"
                 name="password"
                 placeholder="Password"
                 className="input-field "
               />
-            <div className="text-center my-5">
-              <button className="btn-primary" onClick={handleSubmit}>Create Account</button>
-            </div>
+              <div className="text-center my-5">
+                <button className="btn-primary" onClick={handleSubmit}>
+                  Create Account
+                </button>
+              </div>
             </div>
           </Col>
         </Row>
