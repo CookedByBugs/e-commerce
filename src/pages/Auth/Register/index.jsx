@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import React, { useState } from "react";
 import img from "../../../assets/img1.svg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const initialState = {
   fullName: "",
@@ -72,6 +73,7 @@ const SignUp = () => {
                 <button className="btn-primary" onClick={handleSubmit}>
                   Create Account
                 </button>
+                <p className="my-2">Already have an account? <Link to="/auth/sign-in">Sign In</Link></p>
               </div>
             </div>
           </Col>

@@ -1,9 +1,8 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import SignIn from "./Login";
 import SignUp from "./Register";
-import Header from "../../components/Header";
-import MobileBar from "../../components/Header/MobileBar";
+import { useAuthContext } from "../../contexts/Auth/AuthContext";
 const Auth = () => {
   return (
     <main>

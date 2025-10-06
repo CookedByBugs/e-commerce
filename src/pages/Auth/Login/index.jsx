@@ -1,13 +1,17 @@
 import { Col, Row } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import img from "../../../assets/img1.svg";
 import axios from "axios";
+import { useAuthContext } from "../../../contexts/Auth/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const initialState = {
   email: "",
   password: "",
 };
 const SignIn = () => {
+  const { user, isAuth, handleSuccessSignin } = useAuthContext();
+  const navigate = useNavigate();
   const [state, setState] = useState(initialState);
   const handleChange = (e) =>
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
@@ -19,7 +23,9 @@ const SignIn = () => {
       .post(`${import.meta.env.VITE_SERVER}/api/login`, state)
       .then((res) => {
         console.log(res.data);
-        localStorage.setItem("authToken", res.data.token)
+        localStorage.setItem("authToken", res.data.token);
+        handleSuccessSignin(res.data.token);
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -65,8 +71,11 @@ const SignIn = () => {
               />
               <div className="text-center my-5">
                 <button className="btn-primary" onClick={handleSubmit}>
-                  Create Account
+                  Sign in
                 </button>
+                <p className="my-2">
+                  Don't have an account? <Link to="/auth/sign-up">Sign Up</Link>
+                </p>
               </div>
             </div>
           </Col>
