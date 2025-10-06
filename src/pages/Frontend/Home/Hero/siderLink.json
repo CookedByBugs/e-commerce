@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "path": "/categories/womens-fashion",
+    "name": "Women's Fashion"
+  },
+  {
+    "id": 2,
+    "path": "/categories/mens-fashion",
+    "name": "Men's Fashion"
+  },
+  {
+    "id": 3,
+    "path": "/categories/electronics",
+    "name": "Electronics"
+  },
+  {
+    "id": 4,
+    "path": "/categories/home-n-lifestyle",
+    "name": "Home & Lifestyle"
+  },
+  {
+    "id": 5,
+    "path": "/categories/medicine",
+    "name": "Medicine"
+  },
+  {
+    "id": 6,
+    "path": "/categories/sports-n-outdoor",
+    "name": "Sports & Outdoor"
+  },
+  {
+    "id": 7,
+    "path": "/categories/babys-n-toys",
+    "name": "Baby's & Toys"
+  },
+  {
+    "id": 8,
+    "path": "/categories/groceries-n-pets",
+    "name": "Groceries & Pets"
+  },
+  {
+    "id": 9,
+    "path": "/categories /health-n-beauty",
+    "name": "Health & Beauty"
+  }
+]

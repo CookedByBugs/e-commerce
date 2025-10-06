@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "MobileOutlined",
+    "name": "Phones",
+    "path": "/categories/phones"
+  },
+  {
+    "icon": "DesktopOutlined",
+    "name": "Computers",
+    "path": "/categories/computers"
+  },
+  {
+    "icon": "ClockCircleOutlined",
+    "name": "Watches",
+    "path": "/categories/watches"
+  },
+  {
+    "icon": "CameraOutlined",
+    "name": "Camera",
+    "path": "/categories/camera"
+  },
+  {
+    "icon": "CustomerServiceOutlined",
+    "name": "Headphones",
+    "path": "/categories/headphone"
+  },
+  {
+    "icon": "PlaySquareOutlined",
+    "name": "Games",
+    "path": "/categories/games"
+  }
+]

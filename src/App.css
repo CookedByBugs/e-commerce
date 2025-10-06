@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+.mob-link {
+  @apply text-xl rounded-full px-5 py-1 active:shadow-gray-400 shadow bg-white;
+}
+
+.time-container {
+  @apply text-center mx-3;
+}
+
+.time-value {
+  @apply md:text-4xl text-2xl font-semibold;
+}
+
+.btn-primary {
+  @apply px-10 py-3 bg-red-500 text-white hover:bg-red-600 active:bg-red-600 rounded-[4px] transition-all duration-150 cursor-pointer;
+}
+
+.red-block {
+  @apply w-[20px] h-[40px] rounded-[4px] bg-red-500;
+}
+
+.red-block-text {
+  @apply md:text-xl text-lg font-bold text-red-500;
+}
+
+.heading {
+  @apply md:text-5xl text-2xl font-semibold;
+}
+
+.arrow-btn {
+  @apply p-5 bg-gray-300 rounded-full px-6 cursor-pointer hover:bg-gray-200 transition-all duration-150;
+}
+
+.input-field{
+  @apply outline-0 border-b-1 w-full py-2 my-2 text-lg border-gray-400 hover:border-black active:border-black
+}
