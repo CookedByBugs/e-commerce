@@ -1,6 +1,6 @@
-import { Col, Row } from "antd";
+import { Col, Row, Select } from "antd";
 import React, { useState } from "react";
-import img from "../../../assets/img1.svg";
+import img from "../../../assets/auth.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -11,21 +11,36 @@ const initialState = {
 };
 const SignUp = () => {
   const [state, setState] = useState(initialState);
+  const [role, setRole] = useState("customer");
   const handleChange = (e) =>
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
+
+  const changeRole = (val) => {
+    setRole(val)
+    console.log("role", val)
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("state", state);
-    await axios.post(`${import.meta.env.VITE_SERVER}/api/register`, state).then((res) => {
-      console.log(res.data);
-    }).catch(error=>{
-      console.error(error)
-    })
+
+    let { fullName, email, password } = state;
+    fullName = fullName.trim();
+    email = email.trim().toLowerCase();
+
+    const formData = { fullName, email, password, role: role };
+    await axios
+      .post(`${import.meta.env.VITE_SERVER}/api/register`, formData)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
-    <div className="w-[80%] mx-auto ">
+    <div className="">
       <div className="flex flex-col justify-center items-center min-h-[80vh]">
         <Row gutter={[16, 16]}>
           <Col lg={12} md={12} sm={12} xs={12} className="mx-auto">
@@ -69,11 +84,24 @@ const SignUp = () => {
                 placeholder="Password"
                 className="input-field "
               />
+              <div className="w-full mt-2">
+                <Select
+                  className="!w-full"
+                  onChange={(val) => changeRole(val)}
+                  placeholder="Select Role (Development Only)"
+                >
+                  <Select.Option value="customer">Customer</Select.Option>
+                  <Select.Option value="admin">Admin</Select.Option>
+                </Select>
+              </div>
               <div className="text-center my-5">
                 <button className="btn-primary" onClick={handleSubmit}>
                   Create Account
                 </button>
-                <p className="my-2">Already have an account? <Link to="/auth/sign-in">Sign In</Link></p>
+                <p className="my-2">
+                  Already have an account?{" "}
+                  <Link to="/auth/sign-in">Sign In</Link>
+                </p>
               </div>
             </div>
           </Col>

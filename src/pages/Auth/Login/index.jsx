@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import React, { useEffect, useState } from "react";
-import img from "../../../assets/img1.svg";
+import img from "../../../assets/auth.png";
 import axios from "axios";
 import { useAuthContext } from "../../../contexts/Auth/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="w-[80%] mx-auto ">
+    <div className="">
       <div className="flex flex-col justify-center items-center min-h-[80vh]">
         <Row gutter={[16, 16]}>
           <Col lg={12} md={12} sm={12} xs={12} className="mx-auto">

@@ -55,12 +55,18 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProfile();
-  }, [fetchProfile]);
+  }, []);
   if (loading) return <p>Loading...</p>;
   if (state.isAuth) console.log(state.user);
   return (
     <AuthContext.Provider
-      value={{ ...state, data, handleSignout, dispatch: setState, handleSuccessSignin }}
+      value={{
+        ...state,
+        data,
+        handleSignout,
+        dispatch: setState,
+        handleSuccessSignin,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -35,3 +35,7 @@
 .input-field{
   @apply outline-0 border-b-1 w-full py-2 my-2 text-lg border-gray-400 hover:border-black active:border-black
 }
+
+.transition-150{
+  @apply transition-all duration-150
+}

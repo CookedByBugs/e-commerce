@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/Auth/AuthContext";
+import Menu from "./sub compnents/menu";
 const Navbar = () => {
   const { isAuth, user, handleSignout } = useAuthContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,7 +43,11 @@ const Navbar = () => {
                   <li>
                     <Link to="/auth/sign-up">Sign Up</Link>
                   </li>
-                ) : null}
+                ) : (
+                  <li>
+                    <Link to={"/dashboard"}>Dashboard</Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
@@ -60,54 +65,12 @@ const Navbar = () => {
               <div
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 title={user.fullName}
-                className="relative bg-red-500 rounded-full px-2 py-1 text-white cursor-pointer select-none"
+                className="relative sm:block hidden bg-red-500 rounded-full px-2 py-1 text-white cursor-pointer select-none"
               >
                 {JSON.stringify(user.fullName).split("")[1]}
                 {isMenuOpen && (
                   <div className="absolute z-10 top-10 -left-55 px-5 py-3 w-[250px] bg-black/40 backdrop-blur-2xl rounded">
-                    <ul>
-                      <li>
-                        <a
-                          className="select-none block my-2 font-semibold"
-                          href=""
-                        >
-                          <UserOutlined /> Manage My Account
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="select-none block my-2 font-semibold"
-                          href=""
-                        >
-                          <ShoppingOutlined /> My Order
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="select-none block my-2 font-semibold"
-                          href=""
-                        >
-                          <CloseOutlined /> My Cancellations
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="select-none block my-2 font-semibold"
-                          href=""
-                        >
-                          <StarOutlined /> My Reviews
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="select-none block my-2 font-semibold"
-                          href=""
-                          onClick={handleSignout}
-                        >
-                          <PoweroffOutlined /> Sign out
-                        </a>
-                      </li>
-                    </ul>
+                    <Menu />
                   </div>
                 )}
               </div>
