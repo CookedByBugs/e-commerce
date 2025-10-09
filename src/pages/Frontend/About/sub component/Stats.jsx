@@ -50,7 +50,7 @@ const Stats = () => {
                 onMouseEnter={() => changeHoverState(d.id)}
                 className={`text-center ${
                   hover == d.id && "bg-red-500"
-                }  border rounded-lg transition-150`}
+                }  border border-gray-400 p-3 rounded-lg transition-150`}
               >
                 <div
                   className={`${

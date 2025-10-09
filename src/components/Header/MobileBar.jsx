@@ -56,11 +56,11 @@ const MobileBar = () => {
                 )}
               </a>
             ) : (
-              <li>
+              <div>
                 <a className="mob-link" title="User">
                   <UserOutlined />
                 </a>
-              </li>
+              </div>
             )}
           </li>
         </ul>
