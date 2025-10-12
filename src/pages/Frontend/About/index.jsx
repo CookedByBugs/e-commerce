@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Hero from "./sub component/Hero";
 import Stats from "./sub component/Stats";
 import Team from "./sub component/Team";
+import Services from "./sub component/Services";
 const About = () => {
   const navigate = useNavigate();
   return (
@@ -19,6 +20,7 @@ const About = () => {
       <Hero />
       <Stats />
       <Team />
+      <Services />
     </div>
   );
 };

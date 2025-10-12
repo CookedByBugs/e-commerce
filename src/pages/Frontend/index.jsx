@@ -7,11 +7,12 @@ import About from "./About";
 const Frontend = () => {
   return (
     <main className="flex flex-col min-h-screen">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-
       </Routes>
+      <MobileBar />
     </main>
   );
 };

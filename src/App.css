@@ -13,7 +13,10 @@
 }
 
 .btn-primary {
-  @apply px-10 py-3 bg-red-500 text-white hover:bg-red-600 active:bg-red-600 rounded-[4px] transition-all duration-150 cursor-pointer;
+  @apply select-none px-10 py-3 bg-red-500 text-white hover:bg-red-600 active:bg-red-600 rounded-[4px] transition-all duration-150 cursor-pointer;
+}
+.btn-logout {
+  @apply select-none p-3 bg-red-500 text-white hover:bg-red-600 active:bg-red-600 rounded-[4px] transition-all duration-150 cursor-pointer;
 }
 
 .red-block {
@@ -32,10 +35,17 @@
   @apply p-5 bg-gray-300 rounded-full px-6 cursor-pointer hover:bg-gray-200 transition-all duration-150;
 }
 
-.input-field{
-  @apply outline-0 border-b-1 w-full py-2 my-2 text-lg border-gray-400 hover:border-black active:border-black
+.input-field {
+  @apply outline-0 border-b w-full py-2 my-2 text-lg border-gray-400 hover:border-black active:border-black;
 }
 
-.transition-150{
-  @apply transition-all duration-150
+.transition-150 {
+  @apply transition-all duration-150;
+}
+.transition-300 {
+  @apply !transition-all duration-300;
+}
+
+.nav-link {
+  @apply lg:!text-xl;
 }

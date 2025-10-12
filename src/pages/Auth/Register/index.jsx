@@ -47,7 +47,7 @@ const SignUp = () => {
             <div className="">
               <img
                 src={img}
-                alt=""
+                alt="img"
                 className="md:rounded rounded-full w-full"
               />
             </div>

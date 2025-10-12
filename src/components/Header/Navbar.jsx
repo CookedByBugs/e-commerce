@@ -31,23 +31,33 @@ const Navbar = () => {
             <div>
               <ul className="md:flex gap-4 hidden ">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link className="nav-link" to="/">
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link className="nav-link" to="/contact">
+                    Contact
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/about">About</Link>
+                  <Link className="nav-link" to="/about">
+                    About
+                  </Link>
                 </li>
                 {!isAuth ? (
                   <li>
-                    <Link to="/auth/sign-up">Sign Up</Link>
+                    <Link className="nav-link" to="/auth/sign-up">
+                      Sign Up
+                    </Link>
                   </li>
-                ) : (
+                ) : user.role == "admin" ? (
                   <li>
-                    <Link to={"/dashboard"}>Dashboard</Link>
+                    <Link className="nav-link" to={"/dashboard"}>
+                      Dashboard
+                    </Link>
                   </li>
-                )}
+                ) : null}
               </ul>
             </div>
           </div>

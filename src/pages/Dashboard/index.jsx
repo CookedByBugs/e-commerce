@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useAuthContext } from "../../contexts/Auth/AuthContext";
+import Admin from "./Admin";
 
 const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+  const { user } = useAuthContext();
 
-export default Dashboard
+  switch (user.role) {
+    case "admin":
+      return <Admin />;
+    default:
+      return <p>UNAUTHORIZED</p>;
+  }
+};
+
+export default Dashboard;
