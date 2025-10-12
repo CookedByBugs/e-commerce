@@ -36,6 +36,7 @@ const AuthProvider = ({ children }) => {
       })
       .then((res) => {
         setState({ ...state, isAuth: true, user: res.data.user });
+        if (res.data.session > new Date().getTime()) return handleSignout();
         setData(res.data);
         // console.log(state)
       })
